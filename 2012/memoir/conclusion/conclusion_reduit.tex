@@ -1,0 +1,33 @@
+\conclusion
+La supervision réseau est un élément capital dans le monde moderne. Elle est la clé de l'assurance de la QoS. Des esprits plus avisés en ont pris conscience très tôt, dès de début d'Internet en élaborant le protocole \emph{\gls*{sgmp}} qui deviendra très vite \emph{SNMP}.
+
+Très bien accueilli par les constructeurs (à cause de sa \emph{simplicité}), ce protocole reste le standard actuel en matière de supervision. La version reconnue comme standard actuellement est la \emph{SNMPv3}. 
+
+Plusieurs solutions de supervision ont été développé sur la base de \emph{SNMP}. Dans ce lot, le \emph{Network Administration Visualized (NAV)} se singularise. En effet, le NAV est une collection de solutions libres ayant déjà fait leur preuve, chacun dans son domaine. Le NAV offrent ainsi de nombreuses fonctionnalités permettant une gestion optimale du réseau. Mais comme tout projet, le NAV souffrent de quelques limites. La première limite est relative au domaine d'utilisation de la solution. NAV est d'origine universitaire et semble être limitée au monde universitaire. D'autres limites sont reconnues par les développeurs de la solution sur la feuille de route des améliorations du projet. Parmi les fonctionnalités à ajouté au NAV figurent, l'\emph{autodiscovery-wizard}. Cette fonctionnalité permettra de simplifier la première étape après l'installation du NAV: le \texttt{seed DB}. L'étape  du \texttt{seed DB} permet d'enregistrer dans la base de données du NAV, un par un ou par bloc les équipements du réseau. Ce travail peut être fastidieux lorsqu'on est dans un large réseau. 
+
+Notre apport au NAV est l'\emph{initialisation automatique de la base de données} en s'inspirant des dernières études en matière de découverte automatique des équipements d'un réseau grâce à SNMP. Ainsi à partir d'un routeur, il est possible de connaitre tous les équipements actifs dans un réseau. Notre implémentation permet en plus de connaître tous les équipements actifs du réseau; de connaître le type de chacun d'eux et de créer un fichier prêt pour importation dans le NAV. La découverte des équipements du réseau se déroule en étapes suivantes:
+\begin{enumerate}
+ \item Vérification des paramètres SNMP.
+ \item Découverte des équipements du réseau.
+ \begin{enumerate}
+  \item Découverte des routeurs.
+   \begin{enumerate}
+    \item Regroupement des équipements pour éviter les doublons.
+   \end{enumerate}
+  \item Découverte de tous les équipements actifs dans chaque réseau local.
+  \begin{enumerate}
+   \item Regroupement des équipements pour éviter les doublons.
+  \end{enumerate}
+ \end{enumerate}
+ \item Découverte des types d'équipement.
+ \item Création du fichier d'importation dans le NAV.
+\end{enumerate}
+Fini donc les ajouts manuels, avec les risque de doublons ou d'oubli. Il suffit de lancer le script avec les bons paramètres pour obtenir dans un fichier au format d'import en masse de NAV des équipements du réseau.
+
+Ce fichier est uniquement conforme au \emph{Level 1: Minimum requirements}\footnote{\url{http://nav.uninett.no/seedessentials}} pour l'importation en masse avec NAV. Or pour pouvoir bénéficier pleinement des fonctionnalités du NAV, il faut enregistrer les donnés selon le \emph{Level 3: Take full advantage of NAV's capabilities}. Ce niveau permet la personnalisation des salles, des localisations, des organisations gérant les équipements et/ou adresses IP, etc. 
+
+Aussi, l'import dans la base pourrait se faire sans passer par la génération d'un fichier, quoique temporaire. Notre implémentation génère un fichier qu'il faudra importer dans la base du NAV. Cette étape supplémentaire pourrait être éliminée en insérant les informations relatives aux équipements directement dans la base de données du NAV sans passé par l'interface web pour importation. 
+
+NAV ne supporte que \emph{SNMPv1} et \emph{SNMPv2}. Dans un souci de compatibilité avec NAV, notre implémentation est basé sur la classe native \texttt{Snmp} du NAV. Cette classe est d'ailleurs utilisée par le processus du \texttt{ipdevpoll}\footnote{\url{https://nav.uninett.no/backendprocesses}} processus  de découverte de la typologie du réseau. Notre implémentation est donc tout à fait compatible avec le NAV. L'utilisation de \emph{SNMPv3} est toujours possible avec notre implémentation, mais les risques d'incompatibilité avec \texttt{ipdevpoll} nous on conduit à mettre cette option comme fonctionnalité futur.
+
+L'essentiel des fonctionnalités du NAV n'ont pu être testé. Faute d'un ordinateur constamment allumé d'une part. D'autre part, le réseau de test est un réseau virtuel crée grâce à \emph{NetKit}. La disponibilité d'un ordinateur fonctionnant 24h/24 et d'un réseau réel  permettra de mieux observer les diverses fonctionnalités du NAV.

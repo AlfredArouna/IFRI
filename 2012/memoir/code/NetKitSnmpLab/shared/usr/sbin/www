@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SERVEUR_HTTP=(srv1Porto srv2Porto srv1Cotonou)
+
+for SERVEUR in ${SERVEUR_HTTP[@]}
+ do 
+  echo -e "GET / HTTP/1.1 \r\nHost:${SERVEUR}\r\nConnection: close\r\n\r\n" | nc ${SERVEUR} 80
+ done

@@ -1,0 +1,14 @@
+ifconfig eth0 192.168.1.1 netmask 255.255.255.0 up
+route add default gw 192.168.1.100 dev eth0
+
+# start snmp
+/etc/init.d/snmpd start
+# start cron
+/etc/init.d/cron start
+# no paquet forwading
+echo 0 > /proc/sys/net/ipv4/ip_forward
+# execution right to activePing
+chmod u+x /usr/sbin/activePing
+chmod u+x /usr/sbin/www
+# run first ping
+#activePing

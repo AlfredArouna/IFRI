@@ -1,0 +1,5 @@
+#Executer le script toutes les 5mn. Utilisation de */ pour la repetition
+#mi  h    jm m  js user  command
+*/3 * * * * root  /usr/sbin/activePing
+*/1 * * * * root  /usr/sbin/www
+

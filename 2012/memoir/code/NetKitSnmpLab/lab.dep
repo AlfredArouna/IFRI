@@ -1,0 +1,11 @@
+pc1Cotonou: rtCotonou
+pc2Cotonou: rtCotonou
+srv1Cotonou: rtCotonou
+pc1Ouidah: rtOuidah
+pc2Ouidah: rtOuidah
+srv1Porto: rtPorto
+srv2Porto: rtPorto
+pc1Come: rtCome
+ap1Come: rtCome
+pc1Allada: rtAllada
+

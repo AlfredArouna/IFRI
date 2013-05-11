@@ -1,0 +1,25 @@
+#Common hosts name configuration
+127.0.0.1         localhost
+
+192.168.1.1       pc1Cotonou
+192.168.1.2       srv1Cotonou
+
+192.168.2.1       pc1Ouidah
+192.168.2.2       pc2Ouidah
+
+192.168.3.1       srv1Porto
+192.168.3.2       srv2Porto
+
+192.168.4.1       pc1Come
+192.168.4.2       ap1Come
+
+192.168.5.1       pc1Allada
+192.168.4.3       pc1Allada
+
+10.0.1.1          rtCotonou
+10.0.2.2          rtOuidah
+10.0.3.3          rtPorto
+10.0.4.4          rtCome
+10.0.5.5          rtAllada
+10.0.8.6          seedRouter
+

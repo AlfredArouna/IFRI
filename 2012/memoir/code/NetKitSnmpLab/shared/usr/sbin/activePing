@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# ping for arp cache refreshing
+ping -c 20 seedRouter

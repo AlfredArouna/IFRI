@@ -1,0 +1,7 @@
+How to Compile ?
+
+Just run custom commands:
+
+pdflatex -shell-escape -synctex=1 -interaction=nonstopmode %.tex| makeindex -s %.ist -t %.glg -o %.gls %.glo|makeindex %.glo -t %.glg -s %.ist -o %.gls | pdflatex -shell-escape -synctex=1 -interaction=nonstopmode %.tex|evince %.pdf
+
+

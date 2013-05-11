@@ -1,0 +1,25 @@
+\section{Limites de NAV}
+\subsection{Domaines d'utilisation}
+NAV est certes une suite logicielle de pointe pour superviser les réseaux informatiques de grande taille mais NAV ne peut \emph{évidement} pas tout faire.
+
+En effet, NAV est une solution de supervision réseau et non de \emph{configuration} réseau; et ceci à deux exceptions près:
+\begin{itemize}
+\item L'utilisation de SNMP pour bloquer les ports avec l'outil \emph{Arnlod}.
+\item L'utilisation de SNMP pour configurer les ports des switchs et les Vlans avec l'outil \emph{PortAdmin}
+\end{itemize}
+
+NAV n'est pas non plus une solution magique qui va découvrir \emph{tous} les problèmes dans le réseau. NAV essaie de découvrir tous les problèmes \emph{importants} sur le réseau et non tous les problèmes. Il s'en va dire que d'autres outils doivent être utilisé pour découvrir ces problèmes. L'exemple classique est celui du statut des équipements. La minute ou la seconde après la vérification du statut de l'équipement par NAV, ce dernier peut changer de statut. Avant la prochaine vérification par NAV, l'équipement peut revenir à son état originel. Ce changement d'état ne sera pas détecter par le NAV.
+
+Aussi NAV ne donne pas des solutions  toutes faites aux problèmes découverts. NAV ne donne que des alertes et des pistes de recherche de solution. D'autres outils d'investigation doivent être utilisés pour trouver la cause fondamentale du problème et ainsi apporter la meilleure solution.
+
+
+\subsection{Fonctionnalités}
+NAV donne des informations sur la charge du trafic, pas sur le sens du trafic, ni les détails sur le trafic (http, ftp, etc). En d'autres termes, NAV ne permet pas de connaître la source, ni la destination d'un paquet comme les sites les plus visités par exemple. D'autres outils libres tels \emph{Netflow Sensor (NfSen)}\footnote{\url{http://nfsen.sourceforge.net/}} le font déjà correctement. Une documentation sur l'usage de Netflow est donné par \emph{The Swiss Education \& Research Network}\footnote{\url{http://meetings.ripe.net/ripe-50/presentations/ripe50-plenary-tue-nfsen-nfdump.pdf}}
+
+NAV à certes de nombreuses fonctionnalités mais de l'avis même de ses concepteurs, il reste encore de nombreuse fonctionnalités potentielles à ajouter au NAV. La liste complète de ses fonctionnalités est disponible sur le \emph{launchpad}\footnote{\url{https://blueprints.launchpad.net/nav}}.
+
+En autre fonctionnalité, NAV ne fait pas au premier abord de la découverte du réseau. Après installation de NAV, il faut initialiser la base de données en y ajoutant les équipements du réseau: c'est l'étape du \emph{seedDB}.
+
+Une automatisation de cette étape permettrait de simplifier l'utilisation du NAV: Il suffirait d'installer NAV; de lancer le script de découverte puis deux minutes après avoir l'état du réseau.
+
+Nous nous proposons dans le chapitre suivant de donner un début de simplification de l'étape du seedDb.

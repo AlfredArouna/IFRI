@@ -1,0 +1,133 @@
+\documentclass{cls/styleMemoireCeFri}
+
+ \typeMemoire{DIPLOME DE LICENCE EN INFORMATIQUE GÉNÉRALE}
+ \etudiant{\textbf{AROUNA} Hospice Alfred }
+ \titreDuMemoire{Solution libre de supervision réseau: initialisation automatique du NAV en utilisant SNMP}
+ \dateSoutenance{Le jeudi 20 décembre 2012}
+ \promo{2\up{ème}}
+ \annee{2011-2012}
+
+ %maitre de mémoire
+ \encadrant{Monsieur Toussaint OKEY}
+
+ %Jury
+ % President
+ \juryP{\textbf{Président} : Dr \textbf{ADEDJOUMA} Semiyou A., Enseignant-Chercheur à l'EPAC}
+ %Liste des membres 
+ \juryMembre{\textbf{Membres} :}
+ %Premier rapporteur
+ \juryR{1°) Dr. \textbf{Baloïtcha} Ezinvi, Coordonnateur des études au CEFRI}
+ %Examinateur
+ \juryE{2°) Mme \textbf{Gnonlonfoun} Miranda, Enseignant au CEFRI}
+ %second rapporteur
+ \juryRa{~}
+ %second examinateur
+ \juryEx{~}
+
+ %Paramètres du fichier PDF
+ \hypersetup{
+ pdftitle={Solution libre de supervision r\'eseaux: initialisation automatique du NAV en utilisant SNMP},
+ pdfauthor={Hospice Alfred AROUNA, aang@arouna.net},
+ pdfsubject={Supervision des grands r\'eseaux avec une solution libre bas\'ee sur SNMP},
+ pdfkeywords={r\'eseau, supervision, monitoring, SNMP, client, serveur, CeFRI} 
+ }
+
+ %Couleur grise
+ \color{bookColor}
+  
+ \begin{document}
+  
+   %%%% Début Préambule %%%%
+    %Page de titre
+    \pageTitre
+  
+    %Page blanche pour la page de garde
+  	\pagecolor{white}
+  
+  	%Page vide
+  	\thispagestyle{empty}\ \clearpage
+  
+  	%Page du jury
+  	\pageJury
+  
+  	%Page blanche pour le reste du document
+  	\pagecolor{white}
+ 
+  	%Sommaire
+  	%Numérotation romaine
+  	\pagenumbering{roman}
+
+  	%Inclure le glossaire avant les appels et dans la TOC
+  	\input{glossaire/glossaire_reduit}\addcontentsline{toc}{chapter}{Glossaire}
+  
+  	%Résumé
+  	\selectlanguage{french}
+  	\include{resume/resume_abstract_reduit}
+
+  	%Langue française pour la table des matières
+  	\selectlanguage{french}
+  	\tableofcontents
+  
+  	%Liste des algo (en français)
+  	\selectlanguage{french}
+  	\listofalgorithms
+
+  	%Liste des figures
+  	\listoffigures 
+
+  	%Liste des tableaux
+  	\listoftables
+
+  	%Afficher le glossaire
+  	\printglossaries
+
+  	%Remerciements
+  	\include{remerciements/remerciements}
+  	\clearpage
+  	
+  %%%% Fin Préambule %%%%
+  
+  %%%% Début du document %%%%
+  
+  	%Numérotation arabe
+  	\pagenumbering{arabic}
+  	%Numérotation à partir de 1
+	\setcounter{page}{1}
+	
+	%Cacher les entêtes et pieds de pages pour l'introduction
+	\lhead[]{} \rhead[]{} \chead[]{}
+	%Introduction
+	\include{introduction/introduction_reduit}
+	%Reafficher les entêtes et pieds de page
+	\fancyhead[L]{\tiny \leftmark}
+	\fancyhead[R]{\scriptsize \rightmark}
+	\fancyfoot[C]{\thepage}
+	
+	%Premier Chapitre
+	\chapter{Le Network Administration Visualized}
+		%Première section
+    	\input{partie2/chapitre1/presentation}
+    	%Seconde section
+    	\input{partie2/chapitre1/limites}
+    
+    %Second Chapitre	
+    \chapter{Initialisation automatique de la base de données}\label{init_db}
+    	%Première section
+    	\input{partie2/chapitre2/apport}
+    	%Seconde section
+   		\input{partie2/chapitre2/algo_reduit}
+   		%Troisième section
+   		\input{partie2/chapitre2/code_reduit}
+   		
+   	%Conclusion
+	\include{conclusion/conclusion_reduit}
+	
+	%Biblio
+	\include{biblio/biblio}
+	
+  %%%% Fin du document %%%%
+
+	%Annexes
+	\appendix
+
+\end{document}          

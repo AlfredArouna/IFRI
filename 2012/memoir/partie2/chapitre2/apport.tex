@@ -1,0 +1,52 @@
+\section{Initialisation automatique de la base de données grâce à SNMP}
+\monBloc{L'initialisation automatique de la base de données grâce à SNMP constitue notre apport. En effet, avec le modèle actuel proposé par NAV, il faudra actuellement soit ajouter un à un les équipements du réseau, soit remplir un formulaire où chaque ligne correspond à chaque équipement au niveau de l'interface d'administration. Cette tâche s'avère très fastidieuse d'où la nécessité de l'automatiser.}
+
+C'est dans cette perspective que la fonctionnalité \emph{Autodiscovery wizard for NAV} a été prévu sur la feuille de route des futurs développements\footnote{\url{https://blueprints.launchpad.net/nav/+spec/autodiscovery-wizard}}
+
+
+Nous proposons d'écrire un script permettant de découvrir tous les hôtes du réseau supportant SNMP à partir d'un point de départ. Une fois ces hôtes découvert, il faudra les mettre sous un format acceptable par NAV et les insérer dans la base de données.
+
+
+\subsection{Études relatives à la découverte de la typologie réseau avec SNMP}
+De nombreux études ont porté sur la découverte de la topologie physique et logique des réseaux informatiques. Nous ne citerons ici que les quatre dernières études en la matière:
+\begin{enumerate}
+\item Pandey S, Choi M, Lee S, Hong J. \footnote{
+Suman Pandey, Mi-Jung Choi, Sung-Joo Lee, James W. Hong	Dept. of Computer Science and Engineering, POSTECH, Korea}.\emph{IP Network Topology Discovery Using SNMP}. International Conference on Information Networking (ICOIN'09). 23 33-37 2009 %\cite{AT1}
+\item Yang Xiao. \emph{Physical Path Tracing for IP Traffic using SNMP}. BBC Research White Paper WHP 188. 2010 %\cite{AT2}
+\item Pandey S, Choi M, Won Y, Hong J. \emph{SNMP-based enterprise IP network topology discovery. International Journal of Network Management} 21 (3) 169-184. 2011 %\cite{AT3}
+\item Musa Balta, Ibrahim Özçelik. \emph{The Discovery of Enterprise Network Topology Created in a Virtual Environment with SNMPv3}. The Online Journal of Science and Technology (TOJSAT) Volume 2, Issue 2, 64-70, Avril 2012. %\cite{AT4}
+\end{enumerate}
+Toutes les trois dernières études se basent sur les résultats de la première étude de la liste ci-dessus: l'étude sur \emph{IP Network Topology Discovery Using SNMP}. 
+
+De ces études, la typologie réseau découverte est de type physique et logique soit le \emph{link layer topology} et le \emph{router level} du \emph{Internet topology} d'une organisation ou d'un AS. C'est donc une découverte de réseau interne à une organisation ou un AS.
+
+La typologie d'un réseau désigne l'organisation des éléments (équipements et liens) du réseau et les interactions physiques et logiques entre ces divers éléments.
+
+La typologie logique se réfère à la structuration ou division logique du réseau en sous réseaux. %Suivant la logique de division considérée, on peut avoir plusieurs typologies logiques pour un même réseau (cas des switchs L2, L3, L4, L5 ou L7).
+
+La typologie physique désigne les communications ou connexions visibles entre hôtes sur des ports grâce à des liens (de transmission).
+
+Dans le cadre de l'automatisation de l'initialisation de la base de NAV, nous n'implémenterons que certains aspects des résultats de ces études. En effet, la fonctionnalité offerte par le \texttt{ipdevpoll} permettent déjà de faire de la mise à jour des informations dans la base. Notre apport permettra de faire des insertions en masse des informations minimales sur chaque équipent découvert dans le réseau.
+
+%\begin{table}[h]
+%\begin{center}
+% \begin{tabular}{|l|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+% \hline
+%  & Siamwalla et al.(1999) &  Lowekamp et al.(2001) & Breitbart et al.(2004) & Nazir (2007) & Pandey et al. (2011)\\\hline
+%  Method & Ping/broadcast
+%   ping/traceroute/
+%   zone transfer
+%   DSN server/
+%   SNMP/subnet
+%   guessing algorithm & SNMP & SNMP (ICMP
+%  spoofing/
+%  heuristics)
+%& SNMP/ping & Only SNMP
+%
+% \\\hline
+%
+%\end{tabular}
+%\caption{Comparaison des méthodes de découverte de la typologie réseau} \label{comparaison_typologie_réseau}
+%\end{center}
+%\end{table}
+

@@ -1,0 +1,11 @@
+\select@language {english}
+\select@language {english}
+\select@language {french}
+\select@language {french}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Le Network Administration Visualized}{1}{chapter.1}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Initialisation automatique de la base de donn\IeC {\'e}es}{3}{chapter.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Mod\IeC {\`e}le de r\IeC {\'e}seau (cr\IeC {\'e}e avec NetKit) \IeC {\`a} d\IeC {\'e}couvrir par le seedDB\relax }}{17}{figure.caption.8}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Fen\IeC {\^e}tre de confirmation de l'importation des donn\IeC {\'e}es du fichier des \IeC {\'e}quipements du r\IeC {\'e}seau\relax }}{20}{figure.caption.9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces R\IeC {\'e}sultat de l'importation du fichier des \IeC {\'e}quipements du r\IeC {\'e}seau\relax }}{21}{figure.caption.10}

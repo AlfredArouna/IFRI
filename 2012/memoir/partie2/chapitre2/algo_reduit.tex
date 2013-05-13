@@ -223,6 +223,7 @@ Avec le tableau \texttt{D[]} , il devient possible de découvrir les \emph{types
 \texttt{sysService} est une variable qui indique le type de service offert par l'équipement. Elle est représentée par la somme des bits correspondant aux couches OSI auxquelles l'équipement fournis des services. Le tableau \ref{sysServices_mib} (\nameref{sysServices_mib}) montre les valeurs en termes de position de bit pour les couches du modèle TCP/IP (RFC 1213).
 \begin{table}[h]
 \begin{center}
+ \caption{Valeur de la variable sysServices du  MIB-II (RFC 1213)} \label{sysServices_mib}
  \begin{tabular}{|l|l|}
  \hline
  \textbf{Couche} & \textbf{Service (matériel)} \\\hline
@@ -232,7 +233,7 @@ Avec le tableau \texttt{D[]} , il devient possible de découvrir les \emph{types
  \texttt{4} & transport (hôtes) \\\hline
  \texttt{7} & application (mail, http, etc) \\\hline
  \end{tabular}
-\caption{Valeur de la variable sysServices du  MIB-II (RFC 1213)} \label{sysServices_mib}
+
 \end{center}
 \end{table}
 Le résultat du \texttt{sysService} détermine les autres \emph{MIB}s à prendre en compte pour déterminer les types des hôtes. Le \emph{RCF 1242} donne les \emph{définitions} de quelques hôtes utilisées dans un réseau informatique.
